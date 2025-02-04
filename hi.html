@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<title>fireproxy</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<script type="text/javascript" src="host.js"></script>
+
+	<script type="text/javascript">
+		// default host/port/session
+		var proxy = new ProxyHost();
+
+		// prepare for guest call
+		localStorage.setItem('test', 'localStorage test string on the host');
+
+		// test func for remote exec
+		function doSomething ( param ) {
+			return 'some host work with "' + param + '" is done';
+		}
+	</script>
+</head>
+<body>
+	HOST
+</body>
+</html>
+
+<!doctype html>
+<html>
+<head>
+	<title>guest</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<script type="text/javascript" src="guest.js"></script>
+
+	<script type="text/javascript">
+		// default host/port/session
+		var proxy = new ProxyGuest();
+
+		// examples
+		proxy.eval('1+1');
+		proxy.eval('window.navigator.userAgent');
+		proxy.json('screen');
+		proxy.call('localStorage.getItem', ['test'], 'localStorage');
+		proxy.call('doSomething', ['test data']);
+	</script>
+</head>
+<body>
+	GUEST
+</body>
+</html>
