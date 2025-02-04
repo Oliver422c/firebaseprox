@@ -1,0 +1,25 @@
+{
+	"verbose": false,
+	"ignore": [".git", "client/*", "node_modules/*"]
+}
+{
+	"name"        : "code-proxy",
+	"version"     : "1.2.22",
+	"description" : "A debug tool to proxy js code execution from one browser to another.",
+	"main"        : "server/main.js",
+	"author"      : {
+		"name" : "DarkPark",
+		"email": "darkpark.main@gmail.com"
+	},
+	"repository"  : {
+		"type": "git",
+		"url" : "https://github.com/DarkPark/code-proxy"
+	},
+	"license" : "GPL-3.0",
+	"dependencies": {
+		"ws"         : "^0.8.0",
+		"tty-colors" : "^0.0.6",
+		"node-static": "^0.7.7"
+	},
+	"keywords": ["call", "exec", "eval", "code", "proxy", "remote", "browser", "http", "websocket"]
+}
